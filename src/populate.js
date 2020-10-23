@@ -13,6 +13,8 @@ export function populateLogo(wrapper, text, image){
     }
 }
 export function populateMenu(menu, items){
+    let moreBtn = document.createElement('div')
+    createMoreBtn(moreBtn)
     for (let i = 0; i < items.length; i++){
         const btn = document.createElement('div')
             btn.setAttribute('class', 'menuBtn')
@@ -22,6 +24,25 @@ export function populateMenu(menu, items){
             link.textContent = items[i].title
             link.href = items[i].url
         btn.appendChild(link)
-        menu.appendChild(btn)
+        if (i >= 5){
+            btn.setAttribute('class', 'more')
+            moreBtn.appendChild(btn)
+            console.log('over 5')
+        } else {
+            menu.appendChild(btn)
+            console.log('under 5')
+        }
     }
+    console.log('about to execute moreBtn append')
+    menu.appendChild(moreBtn)
+}
+function createMoreBtn(more){
+    let moreWrapper = document.createElement('div')  
+        moreWrapper.setAttribute('id', 'moreWrapper')
+    let moreText = document.createElement('span')
+        moreText.textContent = 'More >'
+        moreWrapper.appendChild(moreText)
+        more.appendChild(moreWrapper)
+        more.setAttribute('id', 'moreBtn')
+        more.style.cursor = 'pointer'
 }

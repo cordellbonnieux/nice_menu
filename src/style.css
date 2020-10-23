@@ -1,5 +1,8 @@
 #wrapper {
   background-color: #000;
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
 }
 #menuWrapper,
 #logoWrapper {
@@ -7,11 +10,23 @@
   margin: 0 10px;
   color: #fff;
 }
+#logoWrapper {
+  padding: 10px 20px;
+}
+#websiteTitle {
+  white-space: nowrap;
+  font-size: 22px;
+}
+#menuWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
 .menuBtn {
   display: inline-block;
   padding: 10px;
   margin: 5px;
   cursor: pointer;
+  white-space: nowrap;
 }
 .menuLink {
   text-decoration: none;
@@ -20,4 +35,16 @@
 }
 .menuLink:hover {
   text-decoration: underline;
+}
+#moreBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#moreWrapper {
+  padding: 15px;
+}
+.more {
+  display: none;
+  background-color: #000;
 }
