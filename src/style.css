@@ -47,4 +47,5 @@
 .more {
   display: none;
   background-color: #000;
+  transition: opacity 0.5s cubic-bezier(0.42, 0, 0.58, 1) 0.1s;
 }

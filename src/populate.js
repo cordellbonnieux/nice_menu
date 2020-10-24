@@ -25,15 +25,12 @@ export function populateMenu(menu, items){
             link.href = items[i].url
         btn.appendChild(link)
         if (i >= 5){
-            btn.setAttribute('class', 'more')
+            btn.setAttribute('class', 'more menuOff')
             moreBtn.appendChild(btn)
-            console.log('over 5')
         } else {
             menu.appendChild(btn)
-            console.log('under 5')
         }
     }
-    console.log('about to execute moreBtn append')
     menu.appendChild(moreBtn)
 }
 function createMoreBtn(more){
@@ -41,8 +38,23 @@ function createMoreBtn(more){
         moreWrapper.setAttribute('id', 'moreWrapper')
     let moreText = document.createElement('span')
         moreText.textContent = 'More >'
+        dropdown(moreText)
         moreWrapper.appendChild(moreText)
         more.appendChild(moreWrapper)
         more.setAttribute('id', 'moreBtn')
         more.style.cursor = 'pointer'
+}
+function dropdown(moreText){
+    return moreText.addEventListener('click', function(){
+        let menuOn = Array.prototype.slice.call(document.getElementsByClassName('menuOn'))
+        let menuOff = Array.prototype.slice.call(document.getElementsByClassName('menuOff'))
+        for (let i = 0; i < menuOff.length; i++){
+            menuOff[i].style.display = 'block'
+            menuOff[i].setAttribute('class', 'more menuOn')
+        }
+        for (let i = 0; i < menuOn.length; i++){
+            menuOn[i].style.display = 'none'
+            menuOn[i].setAttribute('class', 'more menuOff')
+        }
+    })
 }
