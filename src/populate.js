@@ -36,7 +36,7 @@ export function populateMenu(menu, items){
 function createMoreBtn(more){
     let moreWrapper = document.createElement('div')  
         moreWrapper.setAttribute('id', 'moreWrapper')
-    let moreText = document.createElement('span')
+    let moreText = document.createElement('a')
         moreText.textContent = 'More >'
         dropdown(moreText)
         moreWrapper.appendChild(moreText)

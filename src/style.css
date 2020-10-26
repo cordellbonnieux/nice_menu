@@ -16,10 +16,14 @@
 #websiteTitle {
   white-space: nowrap;
   font-size: 22px;
+  color: #fff;
+  text-decoration: none;
 }
 #menuWrapper {
   display: flex;
   flex-wrap: nowrap;
+  position: absolute;
+  right: 100px;
 }
 .menuBtn {
   display: inline-block;
@@ -39,13 +43,21 @@
 #moreBtn {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -87px;
+  text-align: center;
 }
 #moreWrapper {
-  padding: 15px;
+  padding: 14px 25px;
+}
+#moreWrapper a:hover {
+  text-decoration: underline;
 }
 .more {
   display: none;
   background-color: #000;
   transition: opacity 0.5s cubic-bezier(0.42, 0, 0.58, 1) 0.1s;
+}
+.more .menuLink {
+  padding: 5px 15px;
+  display: block;
 }
