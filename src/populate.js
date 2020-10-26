@@ -1,7 +1,12 @@
 export function populateLogo(wrapper, text, image){
     if (image.img){
         const imgLink = document.createElement('a')
-        wrapper.appendChild(image)
+            imgLink.href = image.link
+            imgLink.setAttribute('id', 'websiteLogo')
+        const img = document.createElement('img')
+            img.src = image.img
+        imgLink.appendChild(img)
+        wrapper.appendChild(imgLink)
         return
     } else if (text){
         const textWrapper = document.createElement('a')
