@@ -64,3 +64,25 @@
 #menuBtnWrapper {
   display: none;
 }
+@media only screen and (max-width: 1024px) {
+  #menuWrapper {
+    display: block;
+  }
+  #menu {
+    display: none;
+  }
+  #menuBtnWrapper {
+    display: block;
+    background-color: orange;
+  }
+  .menuBtn {
+    /**/
+  }
+  #moreBtn {
+    position: static;
+    text-align: left;
+  }
+  #moreWrapper {
+    display: none;
+  }
+}

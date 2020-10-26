@@ -20,7 +20,7 @@ export function populateLogo(wrapper, text, image){
 export function populateMenu(menu, items){
     let moreBtn = document.createElement('div')
     let menuBtn = document.createElement('div')
-    createMenuBtn(menuBtn)
+    createMenuBtn(menuBtn, menu)
     createMoreBtn(moreBtn)
     for (let i = 0; i < items.length; i++){
         const btn = document.createElement('div')
@@ -46,20 +46,20 @@ function createMoreBtn(more){
         moreWrapper.setAttribute('id', 'moreWrapper')
     let moreText = document.createElement('a')
         moreText.innerHTML = 'More &#8250;';
-        more
         dropdown(moreText)
         moreWrapper.appendChild(moreText)
         more.appendChild(moreWrapper)
         more.setAttribute('id', 'moreBtn')
         more.style.cursor = 'pointer'
 }
-function createMenuBtn(menu){
+function createMenuBtn(menu , wrapper){
     let menuWrapper = document.createElement('div')  
         menuWrapper.setAttribute('id', 'menuBtnWrapper')
     let menuText = document.createElement('a')
         menuText.textContent = 'Menu'
+        responsiveDropdown(menuText)
         menuWrapper.appendChild(menuText)
-        menu.appendChild(menuWrapper)
+        wrapper.appendChild(menuWrapper)
         menu.setAttribute('id', 'menu')
         menu.style.cursor = 'pointer'  
 }
@@ -74,6 +74,21 @@ function dropdown(moreText){
         for (let i = 0; i < menuOn.length; i++){
             menuOn[i].style.display = 'none'
             menuOn[i].setAttribute('class', 'more menuOff')
+        }
+    })
+}
+function responsiveDropdown(menuText){
+    return menuText.addEventListener('click', function(){
+        let responsiveMenu = document.getElementById('menu')
+        let responsiveMenuOpen = document.getElementById('responsiveMenuOpen')
+        if (responsiveMenu){
+            responsiveMenu.style.display = 'block'
+            responsiveMenu.setAttribute('id', 'responsiveMenuOpen')
+            return
+        } else if (responsiveMenuOpen){
+            responsiveMenuOpen.style.display = 'none'
+            responsiveMenuOpen.setAttribute('id', 'menu')
+            return
         }
     })
 }
