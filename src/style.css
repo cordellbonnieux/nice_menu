@@ -43,7 +43,7 @@
 #moreBtn {
   position: absolute;
   top: 0;
-  right: -87px;
+  right: -100px;
   text-align: center;
 }
 #moreWrapper {
@@ -60,4 +60,7 @@
 .more .menuLink {
   padding: 5px 15px;
   display: block;
+}
+#menuBtnWrapper {
+  display: none;
 }

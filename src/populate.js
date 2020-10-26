@@ -19,6 +19,8 @@ export function populateLogo(wrapper, text, image){
 }
 export function populateMenu(menu, items){
     let moreBtn = document.createElement('div')
+    let menuBtn = document.createElement('div')
+    createMenuBtn(menuBtn)
     createMoreBtn(moreBtn)
     for (let i = 0; i < items.length; i++){
         const btn = document.createElement('div')
@@ -33,21 +35,33 @@ export function populateMenu(menu, items){
             btn.setAttribute('class', 'more menuOff')
             moreBtn.appendChild(btn)
         } else {
-            menu.appendChild(btn)
+            menuBtn.appendChild(btn)
         }
     }
-    menu.appendChild(moreBtn)
+    menu.prepend(menuBtn)
+    menuBtn.appendChild(moreBtn)
 }
 function createMoreBtn(more){
     let moreWrapper = document.createElement('div')  
         moreWrapper.setAttribute('id', 'moreWrapper')
     let moreText = document.createElement('a')
-        moreText.textContent = 'More >'
+        moreText.innerHTML = 'More &#8250;';
+        more
         dropdown(moreText)
         moreWrapper.appendChild(moreText)
         more.appendChild(moreWrapper)
         more.setAttribute('id', 'moreBtn')
         more.style.cursor = 'pointer'
+}
+function createMenuBtn(menu){
+    let menuWrapper = document.createElement('div')  
+        menuWrapper.setAttribute('id', 'menuBtnWrapper')
+    let menuText = document.createElement('a')
+        menuText.textContent = 'Menu'
+        menuWrapper.appendChild(menuText)
+        menu.appendChild(menuWrapper)
+        menu.setAttribute('id', 'menu')
+        menu.style.cursor = 'pointer'  
 }
 function dropdown(moreText){
     return moreText.addEventListener('click', function(){
