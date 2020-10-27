@@ -22,6 +22,7 @@ export function populateMenu(menu, items){
     let menuBtn = document.createElement('div')
     createMenuBtn(menuBtn, menu)
     createMoreBtn(moreBtn)
+    menu.appendChild(menuBtn)
     for (let i = 0; i < items.length; i++){
         const btn = document.createElement('div')
             btn.setAttribute('class', 'menuBtn')
@@ -38,7 +39,6 @@ export function populateMenu(menu, items){
             menuBtn.appendChild(btn)
         }
     }
-    menu.prepend(menuBtn)
     menuBtn.appendChild(moreBtn)
 }
 function createMoreBtn(more){

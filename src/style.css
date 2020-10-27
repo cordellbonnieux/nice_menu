@@ -64,19 +64,31 @@
 #menuBtnWrapper {
   display: none;
 }
+@media only screen and (min-width: 1024px) {
+  #menu {
+    display: block;
+  }
+}
 @media only screen and (max-width: 1024px) {
   #menuWrapper {
     display: block;
+    right: 0;
   }
   #menu {
     display: none;
   }
   #menuBtnWrapper {
     display: block;
-    background-color: orange;
+    padding: 14px 25px;
+  }
+  #menuBtnWrapper a:hover {
+    text-decoration: underline;
   }
   .menuBtn {
-    /**/
+    display: block;
+    background-color: #000;
+    margin: 0;
+    padding: 10px 20px;
   }
   #moreBtn {
     position: static;
@@ -84,5 +96,9 @@
   }
   #moreWrapper {
     display: none;
+  }
+  .more {
+    display: block !important;
+    padding: 5px;
   }
 }
